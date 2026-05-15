@@ -38,11 +38,14 @@
                 <li><a href="#shop">Shop</a></li>
                 <li><a href="#brew-guide">Brew Guide</a></li>
                 <li>
-                    <a class="nav-instagram-icon" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" aria-label="Instagram @caffeineciao">
-                        <svg class="nav-instagram-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    <button type="button" class="nav-cart-btn" id="nav-cart-btn" aria-label="Open cart">
+                        <svg class="nav-cart-icon-svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="3" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <path d="M16 10a4 4 0 01-8 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </a>
+                        <span class="nav-cart-badge" id="nav-cart-badge" aria-live="polite">0</span>
+                    </button>
                 </li>
                 <li><a href="#contact-us">Contact Us</a></li>
             </ul>
@@ -209,6 +212,27 @@
             <p>&copy; 2026 CaffeineCiao</p>
         </div>
     </footer>
+
+    <!-- Mini Cart Drawer -->
+    <div class="mini-cart-overlay" id="mini-cart-overlay" hidden></div>
+    <aside class="mini-cart" id="mini-cart" role="dialog" aria-modal="true" aria-label="Shopping cart" hidden>
+        <div class="mini-cart-header">
+            <h2 class="mini-cart-title">Your Cart</h2>
+            <button type="button" class="mini-cart-close" id="mini-cart-close" aria-label="Close cart">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="16" height="16">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="mini-cart-body" id="mini-cart-body"></div>
+        <div class="mini-cart-footer" id="mini-cart-footer" hidden>
+            <div class="mini-cart-subtotal-row">
+                <span class="mini-cart-subtotal-label">Subtotal</span>
+                <span class="mini-cart-subtotal-value" id="mini-cart-subtotal">RM 0.00</span>
+            </div>
+            <a href="checkout.html" class="mini-cart-checkout-btn">Proceed to Checkout</a>
+        </div>
+    </aside>
 
     <script src="nav-dropdown.js"></script>
     <script src="cart.js"></script>
