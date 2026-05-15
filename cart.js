@@ -307,6 +307,12 @@ function initAddToCartModal() {
     document.getElementById('cart-modal-minus')?.addEventListener('click', () => setModalQty(pendingQty - 1));
     document.getElementById('cart-modal-plus')?.addEventListener('click',  () => setModalQty(pendingQty + 1));
     document.getElementById('cart-modal-confirm')?.addEventListener('click', confirmAddToCart);
+    document.getElementById('cart-modal-buynow')?.addEventListener('click', () => {
+        if (!pendingItem) return;
+        addToCart(pendingItem, pendingQty);
+        closeAddToCartModal();
+        window.location.href = 'checkout.html';
+    });
     modal.querySelectorAll('[data-cart-modal-close]').forEach((el) => el.addEventListener('click', closeAddToCartModal));
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
@@ -329,7 +335,9 @@ function initProductCartControls() {
     document.querySelectorAll('.checkout-btn').forEach((btn) => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
-            openMiniCart();
+            const addBtn = btn.closest('.product-actions')?.querySelector('.add-btn[data-id]');
+            if (addBtn) openAddToCartModal(getProductFromButton(addBtn));
+            else openMiniCart();
         });
     });
 }
