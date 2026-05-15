@@ -1,64 +1,58 @@
 function initBrandDropdown() {
-    const wrapper = document.querySelector('.nav-brand-dropdown');
+    const wrapper = document.getElementById('nav-brand-dropdown');
     if (!wrapper) return;
 
-    const trigger = wrapper.querySelector('.nav-brand');
     const menu = wrapper.querySelector('.brand-dropdown');
-    if (!trigger || !menu) return;
+    const menuCue = wrapper.querySelector('.brand-menu-cue');
+    const links = wrapper.querySelectorAll('.brand-dropdown-link');
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-    const links = menu.querySelectorAll('.brand-dropdown-link');
+    let closeTimer = null;
+
+    const setExpanded = (open) => {
+        wrapper.classList.toggle('is-open', open);
+        if (menuCue) {
+            menuCue.setAttribute('aria-expanded', open ? 'true' : 'false');
+        }
+    };
 
     const openMenu = () => {
-        menu.hidden = false;
-        requestAnimationFrame(() => {
-            menu.classList.add('is-open');
-        });
-        trigger.setAttribute('aria-expanded', 'true');
+        clearTimeout(closeTimer);
+        setExpanded(true);
     };
 
     const closeMenu = () => {
-        if (trigger.getAttribute('aria-expanded') !== 'true') return;
-        menu.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-        const onEnd = (event) => {
-            if (event.propertyName !== 'opacity') return;
-            menu.removeEventListener('transitionend', onEnd);
-            if (!menu.classList.contains('is-open')) {
-                menu.hidden = true;
-            }
-        };
-        menu.addEventListener('transitionend', onEnd);
-        setTimeout(() => {
-            if (!menu.classList.contains('is-open')) {
-                menu.hidden = true;
-            }
-        }, 400);
+        setExpanded(false);
     };
 
-    const toggleMenu = () => {
-        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-        if (isOpen) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
+    const scheduleClose = () => {
+        clearTimeout(closeTimer);
+        closeTimer = setTimeout(closeMenu, 160);
     };
 
-    trigger.addEventListener('click', (event) => {
-        event.stopPropagation();
-        toggleMenu();
-    });
+    if (canHover) {
+        wrapper.addEventListener('mouseenter', openMenu);
+        wrapper.addEventListener('mouseleave', scheduleClose);
+    } else if (menuCue) {
+        menuCue.addEventListener('click', (event) => {
+            event.stopPropagation();
+            const isOpen = wrapper.classList.contains('is-open');
+            if (isOpen) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!wrapper.contains(event.target)) {
+                closeMenu();
+            }
+        });
+    }
 
     links.forEach((link) => {
-        link.addEventListener('click', () => {
-            closeMenu();
-        });
-    });
-
-    document.addEventListener('click', (event) => {
-        if (!wrapper.contains(event.target)) {
-            closeMenu();
-        }
+        link.addEventListener('click', closeMenu);
     });
 
     document.addEventListener('keydown', (event) => {
