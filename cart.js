@@ -248,13 +248,13 @@ function renderCheckout() {
     if (!emptyEl || !contentEl || !itemsEl || !subtotalEl) return;
 
     if (cart.length === 0) {
-        emptyEl.hidden  = false;
-        contentEl.hidden = true;
+        emptyEl.style.display   = '';
+        contentEl.style.display = 'none';
         return;
     }
 
-    emptyEl.hidden  = true;
-    contentEl.hidden = false;
+    emptyEl.style.display   = 'none';
+    contentEl.style.display = '';
 
     let subtotal = 0;
     itemsEl.innerHTML = cart.map((item) => {
