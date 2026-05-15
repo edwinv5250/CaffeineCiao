@@ -191,13 +191,21 @@ body {
     transform: translateY(-100%);
 }
 
-.nav-brand-dropdown:hover .brand-dropdown,
-.nav-brand-dropdown.is-open .brand-dropdown,
-.nav-brand-dropdown:focus-within .brand-dropdown {
+.nav-brand-dropdown.is-open .brand-dropdown {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
     pointer-events: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav-brand-dropdown:hover .brand-dropdown,
+    .nav-brand-dropdown:focus-within .brand-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
 }
 
 .brand-dropdown-list {
