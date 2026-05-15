@@ -51,8 +51,8 @@
         <div class="hero-content">
             <p class="hero-tagline">Brew. Sip. Ciao.</p>
             <h1>CaffeineCiao</h1>
-            <p>Premium coffee with an Italian-inspired twist, crafted for every moment.</p>
-            <a class="cta-button" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">Follow @caffeineciao</a>
+            <p>Small-batch beans and brew tools, curated in Penang with an Italian spirit.</p>
+            <a class="cta-button" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">Discover on Instagram</a>
         </div>
     </section>
 
@@ -60,7 +60,7 @@
     <section id="shop" class="products">
         <div class="container">
             <h2 class="section-title">Our Collections</h2>
-            <p class="collections-intro">Specialty beans and brew gear, priced in <strong>MYR</strong>. Tap <strong>Add to Cart</strong> to review your order at checkout.</p>
+            <p class="collections-intro">Roasts and brew tools, offered in <strong>MYR</strong>. Select a piece, then reserve yours at checkout.</p>
 
             <div class="collection-category" id="coffee-beans">
                 <h3 class="category-title">Coffee Beans</h3>
@@ -93,7 +93,7 @@
     <section id="brew-guide" class="brew-guide">
         <div class="container">
             <h2 class="section-title">Brew Guide</h2>
-            <p class="brew-guide-lead">Dial in your cup with our favorite ratios and grind settings — more guides coming soon on Instagram.</p>
+            <p class="brew-guide-lead">Ratios, grind, and pour notes from our bar — shared first on Instagram.</p>
         </div>
     </section>
 
@@ -122,10 +122,37 @@
         </div>
     </section>
 
+    <!-- Add to Cart Modal -->
+    <div class="cart-modal" id="cart-modal" hidden aria-hidden="true">
+        <div class="cart-modal-backdrop" data-cart-modal-close></div>
+        <div class="cart-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="cart-modal-title">
+            <button type="button" class="cart-modal-close" data-cart-modal-close aria-label="Close">&times;</button>
+            <div class="cart-modal-image-wrap">
+                <img class="cart-modal-image" id="cart-modal-image" src="" alt="">
+            </div>
+            <h3 class="cart-modal-title" id="cart-modal-title"></h3>
+            <p class="cart-modal-price" id="cart-modal-price"></p>
+            <div class="cart-modal-qty">
+                <span class="cart-modal-qty-label">Quantity</span>
+                <div class="qty-controls">
+                    <button type="button" class="qty-btn" id="cart-modal-minus" aria-label="Decrease quantity">&minus;</button>
+                    <span class="qty-value" id="cart-modal-qty" aria-live="polite">1</span>
+                    <button type="button" class="qty-btn" id="cart-modal-plus" aria-label="Increase quantity">+</button>
+                </div>
+            </div>
+            <div class="cart-modal-actions">
+                <button type="button" class="cart-modal-cancel" data-cart-modal-close>Cancel</button>
+                <button type="button" class="cart-modal-confirm" id="cart-modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cart-toast" id="cart-toast" role="status" aria-live="polite" hidden></div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 CaffeineCiao. All rights reserved. | Crafted with ☕ for coffee lovers</p>
+            <p>&copy; 2026 CaffeineCiao</p>
         </div>
     </footer>
 
