@@ -3326,6 +3326,11 @@ body.mini-cart-open {
     .shop-row--solo {
         max-width: 100%;
     }
+
+    .collection-category:not(.is-expanded) .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.25rem;
+    }
 }
 
 @media (max-width: 480px) {
