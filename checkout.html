@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaffeineCiao | Specialty Coffee</title>
+    <title>Checkout | CaffeineCiao</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <!-- Navigation -->
+<body data-page="checkout">
     <nav class="navbar">
         <div class="container">
-            <a href="#home" class="nav-brand">
+            <a href="index.html#home" class="nav-brand">
                 <img class="brand-logo" src="logo.png" alt="CaffeineCiao Logo">
                 <span>CaffeineCiao</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#beans">Beans</a></li>
-                <li><a href="#brew-guide">Brew Guide</a></li>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#beans">Beans</a></li>
+                <li><a href="index.html#brew-guide">Brew Guide</a></li>
                 <li>
                     <a class="nav-instagram-icon" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" aria-label="Instagram @caffeineciao">
                         <svg class="nav-instagram-icon-svg" viewBox="0 0 24 24" aria-hidden="true">
@@ -28,63 +27,45 @@
                         </svg>
                     </a>
                 </li>
-                <li><a href="#contact-us">Contact Us</a></li>
+                <li><a href="index.html#contact-us">Contact Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <p class="hero-tagline">Brew. Sip. Ciao.</p>
-            <h1>CaffeineCiao</h1>
-            <p>Premium coffee with an Italian-inspired twist, crafted for every moment.</p>
-            <a class="cta-button" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">Follow @caffeineciao</a>
-        </div>
-    </section>
-
-    <!-- Our Collections -->
-    <section id="beans" class="products">
+    <section class="checkout-page">
         <div class="container">
-            <h2 class="section-title">Our Collections</h2>
-            <p class="collections-intro">Specialty beans and brew gear, priced in <strong>MYR</strong>. Tap <strong>Add to Cart</strong> to review your order at checkout.</p>
+            <h1 class="section-title">Checkout</h1>
+            <p class="checkout-intro">Review your order below. Online payment will be available soon.</p>
 
-            <div class="collection-category" id="coffee-beans">
-                <h3 class="category-title">Coffee Beans</h3>
-                <div class="products-grid" data-category="coffee-beans"></div>
+            <div id="checkout-empty" class="checkout-empty" hidden>
+                <p>Your cart is empty.</p>
+                <a class="checkout-back-btn" href="index.html#beans">Browse collections</a>
             </div>
 
-            <div class="collection-category" id="drippers">
-                <h3 class="category-title">Dripper</h3>
-                <div class="products-grid" data-category="drippers"></div>
-            </div>
+            <div id="checkout-content" class="checkout-panel" hidden>
+                <ul id="checkout-items" class="checkout-items"></ul>
 
-            <div class="collection-category" id="cups-servers">
-                <h3 class="category-title">Coffee Cup / Server</h3>
-                <div class="products-grid" data-category="cups-servers"></div>
-            </div>
+                <div class="checkout-summary">
+                    <div class="checkout-summary-row">
+                        <span>Subtotal</span>
+                        <span id="checkout-subtotal">RM 0.00</span>
+                    </div>
+                    <p class="checkout-summary-note">Shipping &amp; taxes calculated at payment (coming soon).</p>
+                </div>
 
-            <div class="collection-category" id="kettles">
-                <h3 class="category-title">Kettle</h3>
-                <div class="products-grid" data-category="kettles"></div>
-            </div>
+                <div class="checkout-actions">
+                    <a class="checkout-back-btn" href="index.html#beans">Continue shopping</a>
+                    <button type="button" id="checkout-pay-btn" class="checkout-pay-btn">Proceed to payment</button>
+                    <button type="button" id="clear-cart-btn" class="checkout-clear-btn">Clear cart</button>
+                </div>
 
-            <div class="collection-category" id="accessories">
-                <h3 class="category-title">Small Accessories</h3>
-                <div class="products-grid" data-category="accessories"></div>
+                <p id="checkout-notice" class="checkout-notice" hidden>
+                    Payment integration is coming soon. Your items are saved for this session — contact us on Instagram to complete your order in the meantime.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Brew Guide Section -->
-    <section id="brew-guide" class="brew-guide">
-        <div class="container">
-            <h2 class="section-title">Brew Guide</h2>
-            <p class="brew-guide-lead">Dial in your cup with our favorite ratios and grind settings — more guides coming soon on Instagram.</p>
-        </div>
-    </section>
-
-    <!-- Contact Us -->
     <section id="contact-us" class="contact-section">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
@@ -109,15 +90,13 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 CaffeineCiao. All rights reserved. | Crafted with ☕ for coffee lovers</p>
+            <p>&copy; 2026 CaffeineCiao. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="cart.js"></script>
-    <script src="products.js"></script>
     <script>
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
