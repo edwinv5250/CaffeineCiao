@@ -538,8 +538,8 @@ body {
 }
 
 .hero-logo {
-    width: clamp(170px, 22vw, 220px);
-    height: clamp(170px, 22vw, 220px);
+    width: clamp(212px, 27.5vw, 275px);
+    height: clamp(212px, 27.5vw, 275px);
     border-radius: 50%;
     object-fit: cover;
     display: block;
@@ -2200,8 +2200,8 @@ body.mini-cart-open {
     }
 
     .hero-logo {
-        width: 150px;
-        height: 150px;
+        width: 188px;
+        height: 188px;
     }
 
     .hero-tagline {
