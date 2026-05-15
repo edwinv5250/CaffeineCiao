@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    const WA_NUMBER = '60123456789';
+    const WA_NUMBER = '60103505250';
 
     // ── Toast ──────────────────────────────────────────────────────
     function showToast() {

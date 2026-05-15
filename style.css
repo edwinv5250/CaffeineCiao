@@ -5,6 +5,9 @@
     box-sizing: border-box;
 }
 
+/* Ensure [hidden] always wins over display rules on elements */
+[hidden] { display: none !important; }
+
 :root {
     --primary-dark: #0f0f0f;
     --secondary-dark: #1a1a1a;
