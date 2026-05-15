@@ -62,13 +62,45 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div id="about" class="hero-about-anchor" aria-hidden="true"></div>
-        <div class="hero-content">
-            <p class="hero-tagline">Brew. Sip. Ciao.</p>
-            <div class="hero-logo-wrap" aria-label="CaffeineCiao">
-                <img class="hero-logo" src="logo.png" alt="CaffeineCiao">
+        <div class="hero-layout">
+            <div class="hero-content">
+                <p class="hero-tagline">Brew. Sip. Ciao.</p>
+                <div class="hero-logo-wrap" aria-label="CaffeineCiao">
+                    <img class="hero-logo" src="logo.png" alt="CaffeineCiao">
+                </div>
+                <p>Small-batch beans and brew tools, curated in Penang with an Italian spirit.</p>
+                <a class="cta-button" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">Discover on Instagram</a>
             </div>
-            <p>Small-batch beans and brew tools, curated in Penang with an Italian spirit.</p>
-            <a class="cta-button" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">Discover on Instagram</a>
+
+            <div class="hero-visual" aria-hidden="true">
+                <div class="hero-brew-card">
+                    <div class="hero-brew-card-label">Today's Brew</div>
+                    <div class="hero-brew-card-name">Ethiopia Yirgacheffe</div>
+                    <div class="hero-brew-card-notes">Floral · Citrus · Tea-like</div>
+                    <div class="hero-brew-card-divider"></div>
+                    <div class="hero-brew-card-specs">
+                        <div class="hero-brew-card-spec">
+                            <span class="hero-brew-card-spec-val">V60</span>
+                            <span class="hero-brew-card-spec-key">Method</span>
+                        </div>
+                        <div class="hero-brew-card-spec">
+                            <span class="hero-brew-card-spec-val">15g</span>
+                            <span class="hero-brew-card-spec-key">Coffee</span>
+                        </div>
+                        <div class="hero-brew-card-spec">
+                            <span class="hero-brew-card-spec-val">250ml</span>
+                            <span class="hero-brew-card-spec-key">Water</span>
+                        </div>
+                        <div class="hero-brew-card-spec">
+                            <span class="hero-brew-card-spec-val">93°C</span>
+                            <span class="hero-brew-card-spec-key">Temp</span>
+                        </div>
+                    </div>
+                    <div class="hero-brew-card-footer">Origin: Ethiopia · Light roast</div>
+                </div>
+                <div class="hero-visual-orb hero-visual-orb--1"></div>
+                <div class="hero-visual-orb hero-visual-orb--2"></div>
+            </div>
         </div>
     </section>
 
@@ -162,10 +194,215 @@
 
     <!-- Brew Guide Section -->
     <section id="brew-guide" class="brew-guide">
+
+        <!-- Header -->
         <div class="container">
-            <h2 class="section-title">Brew Guide</h2>
-            <p class="brew-guide-lead">Ratios, grind, and pour notes from our bar — shared first on Instagram.</p>
+            <div class="brew-header">
+                <span class="brew-eyebrow">The Art of Brewing</span>
+                <h2 class="section-title">Brew Guide</h2>
+                <p class="brew-guide-lead">Ratios, grind, and pour notes from our bar — shared first on Instagram.</p>
+            </div>
         </div>
+
+        <!-- 1. Featured Brew Methods -->
+        <div class="container">
+            <div class="brew-methods-grid">
+
+                <article class="brew-method-card">
+                    <div class="brew-method-image">
+                        <img src="https://images.pexels.com/photos/6612574/pexels-photo-6612574.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" alt="V60 Pour Over" loading="lazy" width="800" height="500">
+                        <span class="brew-method-badge">Pour Over</span>
+                    </div>
+                    <div class="brew-method-body">
+                        <h3 class="brew-method-name">V60</h3>
+                        <p class="brew-method-desc">A clean, bright cup that highlights origin character. Spiral ridges and an open base encourage even extraction and clarity.</p>
+                        <div class="brew-specs">
+                            <div class="brew-spec"><span class="brew-spec-label">Ratio</span><span class="brew-spec-value">1 : 15</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Grind</span><span class="brew-spec-value">Medium-fine</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Time</span><span class="brew-spec-value">2:30 – 3:00</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Temp</span><span class="brew-spec-value">92 – 94°C</span></div>
+                        </div>
+                        <div class="brew-flavors">
+                            <span class="brew-flavor-tag">Floral</span>
+                            <span class="brew-flavor-tag">Bright</span>
+                            <span class="brew-flavor-tag">Clean</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="brew-method-card">
+                    <div class="brew-method-image">
+                        <img src="https://images.pexels.com/photos/4912375/pexels-photo-4912375.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" alt="French Press" loading="lazy" width="800" height="500">
+                        <span class="brew-method-badge">Immersion</span>
+                    </div>
+                    <div class="brew-method-body">
+                        <h3 class="brew-method-name">French Press</h3>
+                        <p class="brew-method-desc">Full-bodied and rich. Immersion brewing lets oils and fines pass through, creating a heavier, textured cup with depth.</p>
+                        <div class="brew-specs">
+                            <div class="brew-spec"><span class="brew-spec-label">Ratio</span><span class="brew-spec-value">1 : 12</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Grind</span><span class="brew-spec-value">Coarse</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Time</span><span class="brew-spec-value">4:00</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Temp</span><span class="brew-spec-value">93 – 96°C</span></div>
+                        </div>
+                        <div class="brew-flavors">
+                            <span class="brew-flavor-tag">Rich</span>
+                            <span class="brew-flavor-tag">Full body</span>
+                            <span class="brew-flavor-tag">Bold</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="brew-method-card">
+                    <div class="brew-method-image">
+                        <img src="https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg?auto=compress&cs=tinysrgb&w=800&h=500&fit=crop" alt="AeroPress" loading="lazy" width="800" height="500">
+                        <span class="brew-method-badge">Pressure</span>
+                    </div>
+                    <div class="brew-method-body">
+                        <h3 class="brew-method-name">AeroPress</h3>
+                        <p class="brew-method-desc">Versatile and forgiving. Short brew time and gentle pressure produce a smooth, concentrated cup with very low acidity.</p>
+                        <div class="brew-specs">
+                            <div class="brew-spec"><span class="brew-spec-label">Ratio</span><span class="brew-spec-value">1 : 13</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Grind</span><span class="brew-spec-value">Medium</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Time</span><span class="brew-spec-value">1:30 – 2:00</span></div>
+                            <div class="brew-spec"><span class="brew-spec-label">Temp</span><span class="brew-spec-value">80 – 85°C</span></div>
+                        </div>
+                        <div class="brew-flavors">
+                            <span class="brew-flavor-tag">Smooth</span>
+                            <span class="brew-flavor-tag">Low acid</span>
+                            <span class="brew-flavor-tag">Versatile</span>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <!-- 2. Today's Brew Ratio Spotlight -->
+        <div class="container">
+            <div class="brew-ratio-spotlight">
+                <div class="brew-ratio-label">Today's Brew</div>
+                <h3 class="brew-ratio-title">Ethiopia Yirgacheffe · V60</h3>
+                <div class="brew-ratio-stats">
+                    <div class="brew-ratio-stat">
+                        <span class="brew-ratio-stat-value">15g</span>
+                        <span class="brew-ratio-stat-label">Coffee</span>
+                    </div>
+                    <div class="brew-ratio-divider" aria-hidden="true"></div>
+                    <div class="brew-ratio-stat">
+                        <span class="brew-ratio-stat-value">250ml</span>
+                        <span class="brew-ratio-stat-label">Water</span>
+                    </div>
+                    <div class="brew-ratio-divider" aria-hidden="true"></div>
+                    <div class="brew-ratio-stat">
+                        <span class="brew-ratio-stat-value">2:30</span>
+                        <span class="brew-ratio-stat-label">Brew time</span>
+                    </div>
+                    <div class="brew-ratio-divider" aria-hidden="true"></div>
+                    <div class="brew-ratio-stat">
+                        <span class="brew-ratio-stat-value">M-Fine</span>
+                        <span class="brew-ratio-stat-label">Grind size</span>
+                    </div>
+                </div>
+                <p class="brew-ratio-note">93°C · Bloom 30 s with 45ml · Pulse pour in 3 stages</p>
+            </div>
+        </div>
+
+        <!-- 3. Brew Tips -->
+        <div class="container">
+            <h3 class="brew-subsection-title">Barista Tips</h3>
+            <div class="brew-tips-grid">
+                <div class="brew-tip-card">
+                    <div class="brew-tip-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/></svg>
+                    </div>
+                    <h4 class="brew-tip-title">Start with fresh beans</h4>
+                    <p class="brew-tip-text">Use within 2–4 weeks of roast date. Stale coffee is the top reason for flat, dull cups.</p>
+                </div>
+                <div class="brew-tip-card">
+                    <div class="brew-tip-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h4 class="brew-tip-title">Bloom your coffee</h4>
+                    <p class="brew-tip-text">Pour 2× coffee weight in water, wait 30 s. This releases CO₂ and unlocks even extraction.</p>
+                </div>
+                <div class="brew-tip-card">
+                    <div class="brew-tip-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="currentColor" stroke-width="1.5"/><path d="M12 6v2M12 16v2M6 12H4M20 12h-2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/></svg>
+                    </div>
+                    <h4 class="brew-tip-title">Use filtered water</h4>
+                    <p class="brew-tip-text">Chlorine dulls flavour. Filtered water around 150 ppm TDS is ideal for pour over.</p>
+                </div>
+                <div class="brew-tip-card">
+                    <div class="brew-tip-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M14 17.5h7M17.5 14v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                    </div>
+                    <h4 class="brew-tip-title">Grind just before brewing</h4>
+                    <p class="brew-tip-text">Ground coffee stales in minutes. A burr grinder dramatically improves clarity and sweetness.</p>
+                </div>
+                <div class="brew-tip-card">
+                    <div class="brew-tip-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M14 14.76V3.5a2.5 2.5 0 00-5 0v11.26A4.5 4.5 0 1014 14.76z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <h4 class="brew-tip-title">Control your temperature</h4>
+                    <p class="brew-tip-text">Light roasts: 92–95°C. Dark roasts: 88–91°C. Too hot = bitter. Too cool = sour.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Instagram Content Preview -->
+        <div class="brew-ig-section">
+            <div class="container">
+                <div class="brew-ig-header">
+                    <h3 class="brew-subsection-title brew-subsection-title--flush">From the Feed</h3>
+                    <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" class="brew-ig-follow-link">
+                        <svg class="brew-ig-follow-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                        @caffeineciao
+                    </a>
+                </div>
+            </div>
+            <div class="brew-ig-scroll">
+                <div class="brew-ig-track">
+                    <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" class="brew-ig-post" aria-label="How to bloom coffee properly">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&h=400&q=75" alt="How to bloom coffee properly" loading="lazy" width="400" height="400">
+                        <div class="brew-ig-post-overlay"><span class="brew-ig-post-title">How to bloom coffee properly</span></div>
+                    </a>
+                    <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" class="brew-ig-post" aria-label="V60 beginner mistakes">
+                        <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=400&h=400&q=75" alt="V60 beginner mistakes" loading="lazy" width="400" height="400">
+                        <div class="brew-ig-post-overlay"><span class="brew-ig-post-title">V60 beginner mistakes</span></div>
+                    </a>
+                    <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" class="brew-ig-post" aria-label="Best grind size explained">
+                        <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=400&h=400&q=75" alt="Best grind size explained" loading="lazy" width="400" height="400">
+                        <div class="brew-ig-post-overlay"><span class="brew-ig-post-title">Best grind size explained</span></div>
+                    </a>
+                    <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" class="brew-ig-post" aria-label="Why light roast tastes fruity">
+                        <img src="https://images.pexels.com/photos/1695052/pexels-photo-1695052.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Why light roast tastes fruity" loading="lazy" width="400" height="400">
+                        <div class="brew-ig-post-overlay"><span class="brew-ig-post-title">Why light roast tastes fruity</span></div>
+                    </a>
+                    <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" class="brew-ig-post" aria-label="Water temperature guide">
+                        <img src="https://images.pexels.com/photos/894695/pexels-photo-894695.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Water temperature guide" loading="lazy" width="400" height="400">
+                        <div class="brew-ig-post-overlay"><span class="brew-ig-post-title">Water temperature guide</span></div>
+                    </a>
+                    <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" class="brew-ig-post" aria-label="Storing coffee beans correctly">
+                        <img src="https://images.pexels.com/photos/2131969/pexels-photo-2131969.jpeg?auto=compress&cs=tinysrgb&w=400&h=400&fit=crop" alt="Storing coffee beans correctly" loading="lazy" width="400" height="400">
+                        <div class="brew-ig-post-overlay"><span class="brew-ig-post-title">Storing coffee beans correctly</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. CTA -->
+        <div class="container">
+            <div class="brew-cta">
+                <span class="brew-cta-eyebrow">Daily brew inspiration</span>
+                <h3 class="brew-cta-title">Follow the journey on Instagram</h3>
+                <p class="brew-cta-text">Recipes, ratios, and behind-the-bar moments — posted daily by our team in Penang.</p>
+                <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" class="brew-cta-btn">
+                    <svg class="brew-cta-btn-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                    @caffeineciao
+                </a>
+            </div>
+        </div>
+
     </section>
 
     <!-- Contact Us -->
@@ -176,12 +413,21 @@
 
                 <!-- Contact info -->
                 <div class="contact-info-panel">
-                    <p class="contact-info-lead">We'd love to hear from you. Reach out through any channel below, or send us a message directly.</p>
+                    <p class="contact-info-lead">We'd love to hear from you.<br>Coffee, collaborations, or brewing questions — drop us a message anytime.</p>
+
+                    <div class="contact-social-row">
+                        <a href="https://www.instagram.com/caffeineciao" class="contact-social-icon" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+                        </a>
+                        <a href="#" class="contact-social-icon" target="_blank" rel="noopener" aria-label="Xiaohongshu">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="3" stroke="currentColor" stroke-width="1.5"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                        </a>
+                        <a href="#" class="contact-social-icon" target="_blank" rel="noopener" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.37 6.37 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7a4.85 4.85 0 01-1.07-.31z"/></svg>
+                        </a>
+                    </div>
+
                     <ul class="contact-list">
-                        <li class="contact-item">
-                            <span class="contact-label">Instagram</span>
-                            <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">CaffeineCiao</a>
-                        </li>
                         <li class="contact-item">
                             <span class="contact-label">Email</span>
                             <a href="mailto:caffeineciao@gmail.com">caffeineciao@gmail.com</a>
@@ -189,10 +435,6 @@
                         <li class="contact-item">
                             <span class="contact-label">Address</span>
                             <span class="contact-value">Bayan Lepas, Penang</span>
-                        </li>
-                        <li class="contact-item">
-                            <span class="contact-label">小红书</span>
-                            <span class="contact-value">嗨，咖</span>
                         </li>
                     </ul>
                 </div>
