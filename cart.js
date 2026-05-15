@@ -239,12 +239,23 @@ function showCartToast(message) {
 }
 
 // ── Checkout page ─────────────────────────────────────────────────────────────
+function calcOrderTotals(cart) {
+    const subtotal = cart.reduce((s, item) => s + item.price * item.qty, 0);
+    const sst      = subtotal * 0.06;
+    const shipping = subtotal > 150 ? 0 : 10;
+    const total    = subtotal + sst + shipping;
+    return { subtotal, sst, shipping, total };
+}
+
 function renderCheckout() {
     const cart       = getCart();
     const emptyEl    = document.getElementById('checkout-empty');
     const contentEl  = document.getElementById('checkout-content');
     const itemsEl    = document.getElementById('checkout-items');
     const subtotalEl = document.getElementById('checkout-subtotal');
+    const sstEl      = document.getElementById('checkout-sst');
+    const shippingEl = document.getElementById('checkout-shipping');
+    const totalEl    = document.getElementById('checkout-total');
     if (!emptyEl || !contentEl || !itemsEl || !subtotalEl) return;
 
     if (cart.length === 0) {
@@ -256,10 +267,8 @@ function renderCheckout() {
     emptyEl.style.display   = 'none';
     contentEl.style.display = '';
 
-    let subtotal = 0;
     itemsEl.innerHTML = cart.map((item) => {
         const lineTotal = item.price * item.qty;
-        subtotal += lineTotal;
         return `
             <li class="checkout-item" data-id="${item.id}">
                 <img class="checkout-item-img" src="${item.image}" alt="" width="80" height="80" loading="lazy">
@@ -284,7 +293,11 @@ function renderCheckout() {
             </li>`;
     }).join('');
 
+    const { subtotal, sst, shipping, total } = calcOrderTotals(cart);
     subtotalEl.textContent = formatMYR(subtotal);
+    if (sstEl)      sstEl.textContent      = formatMYR(sst);
+    if (shippingEl) shippingEl.textContent = shipping === 0 ? 'Free' : formatMYR(shipping);
+    if (totalEl)    totalEl.textContent    = formatMYR(total);
 
     itemsEl.querySelectorAll('.checkout-item').forEach((row) => {
         const id = row.dataset.id;

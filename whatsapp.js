@@ -13,12 +13,15 @@
 
     // ── Message builder ────────────────────────────────────────────
     function buildMessage(name, phone) {
-        const items = getCart();
-        const lines = items.map((item) => {
+        const items    = getCart();
+        const lines    = items.map((item) => {
             const sub = (item.price * item.qty).toFixed(2);
             return `- ${item.name} x${item.qty} — RM${sub}`;
         });
-        const total = items.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2);
+        const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
+        const sst      = subtotal * 0.06;
+        const shipping = subtotal > 150 ? 0 : 10;
+        const total    = subtotal + sst + shipping;
 
         return [
             'Hello CaffeineCiao ☕,',
@@ -28,8 +31,12 @@
             '🛒 Items:',
             ...lines,
             '',
+            `Subtotal: RM${subtotal.toFixed(2)}`,
+            `SST (6%): RM${sst.toFixed(2)}`,
+            `Shipping: ${shipping === 0 ? 'Free' : `RM${shipping.toFixed(2)}`}`,
+            '',
             '💰 Total:',
-            `RM${total}`,
+            `RM${total.toFixed(2)}`,
             '',
             '📍 Name:',
             name,

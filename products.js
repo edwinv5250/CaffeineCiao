@@ -228,7 +228,7 @@ const COLLECTIONS = [
     },
     {
         id: 'accessories',
-        title: 'Small Accessories',
+        title: 'Coffee Accessories',
         products: [
             {
                 id: 'acc-thermometer',
@@ -281,6 +281,7 @@ const COLLECTIONS = [
         ],
     },
 ];
+
 
 function renderProductCard(product, categoryTitle) {
     const soonClass = product.soon ? ' product-card--soon' : '';
@@ -365,9 +366,37 @@ function initCategorySliders() {
                         sibling.classList.toggle('is-sibling-hidden', expanded);
                     }
                 });
+                row.classList.toggle('has-expanded', expanded);
             }
 
-            if (!expanded) {
+            if (expanded) {
+                const grid   = cat.querySelector('.products-grid');
+                const header = cat.querySelector('.category-header');
+
+                const arrowGroup = document.createElement('div');
+                arrowGroup.className = 'cat-arrow-group';
+
+                const makeArrow = (label, svgPath) => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.className = 'cat-arrow-btn';
+                    btn.setAttribute('aria-label', label);
+                    btn.innerHTML = `<svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true"><path d="${svgPath}" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+                    return btn;
+                };
+
+                const prevBtn = makeArrow('Scroll left',  'M10 3L6 8l4 5');
+                const nextBtn = makeArrow('Scroll right', 'M6 3l4 5-4 5');
+
+                arrowGroup.appendChild(prevBtn);
+                arrowGroup.appendChild(nextBtn);
+                header.insertBefore(arrowGroup, seeAll);
+
+                const scrollAmt = () => Math.max(220, grid.clientWidth * 0.65);
+                prevBtn.addEventListener('click', () => grid.scrollBy({ left: -scrollAmt(), behavior: 'smooth' }));
+                nextBtn.addEventListener('click', () => grid.scrollBy({ left:  scrollAmt(), behavior: 'smooth' }));
+            } else {
+                cat.querySelector('.cat-arrow-group')?.remove();
                 cat.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         });
@@ -379,6 +408,13 @@ function initProductModal() {
     const modal    = document.getElementById('product-modal');
     const closeBtn = document.getElementById('product-modal-close');
     if (!modal) return;
+
+    let modalQty = 1;
+
+    function setQty(n) {
+        modalQty = Math.max(1, Math.min(99, n));
+        document.getElementById('product-modal-qty').textContent = modalQty;
+    }
 
     function openModal(card) {
         const { id, name, price, category, image, description } = card.dataset;
@@ -394,6 +430,8 @@ function initProductModal() {
         addBtn.dataset.price    = price;
         addBtn.dataset.category = category;
         addBtn.dataset.image    = image;
+
+        setQty(1);
 
         overlay.hidden = false;
         modal.hidden   = false;
@@ -415,6 +453,9 @@ function initProductModal() {
         }, 400);
     }
 
+    document.getElementById('product-modal-qty-minus').addEventListener('click', () => setQty(modalQty - 1));
+    document.getElementById('product-modal-qty-plus').addEventListener('click',  () => setQty(modalQty + 1));
+
     overlay.addEventListener('click', closeModal);
     closeBtn.addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => {
@@ -423,14 +464,14 @@ function initProductModal() {
 
     document.getElementById('product-modal-add-btn').addEventListener('click', () => {
         const btn = document.getElementById('product-modal-add-btn');
-        if (typeof openAddToCartModal === 'function') {
-            openAddToCartModal({
+        if (typeof addToCart === 'function') {
+            addToCart({
                 id:       btn.dataset.id,
                 name:     btn.dataset.name,
                 price:    parseFloat(btn.dataset.price),
                 category: btn.dataset.category,
                 image:    btn.dataset.image,
-            });
+            }, modalQty);
         }
         closeModal();
     });
