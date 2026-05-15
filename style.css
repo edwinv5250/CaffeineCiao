@@ -652,22 +652,141 @@ body {
     margin-bottom: 0;
 }
 
+.category-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(200, 153, 104, 0.15);
+}
+
 .category-title {
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.375rem, 3vw, 1.75rem);
     font-weight: 600;
     color: #dcc4a8;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 1px solid rgba(200, 153, 104, 0.15);
     letter-spacing: 0.02em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
 }
 
+.category-see-all {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+    transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.category-see-all::after {
+    content: '→';
+    display: inline-block;
+    transition: transform 0.3s var(--ease-out);
+}
+
+.category-see-all:hover {
+    color: var(--accent-soft);
+}
+
+.collection-category.is-expanded .category-see-all::after {
+    transform: rotate(90deg);
+}
+
+/* Slider wrapper */
+.category-slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Slider nav buttons */
+.slider-btn {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #d4ab7a 0%, #c89968 50%, #a67c52 100%);
+    border: 1px solid rgba(255, 235, 210, 0.22);
+    color: #0a0806;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.18) inset,
+        0 3px 12px rgba(200, 153, 104, 0.25);
+    transition:
+        transform 0.3s var(--ease-out),
+        box-shadow 0.3s var(--ease-out),
+        opacity 0.3s ease;
+}
+
+.slider-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.22) inset,
+        0 5px 18px rgba(200, 153, 104, 0.38);
+}
+
+.slider-btn:disabled {
+    opacity: 0.28;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.collection-category.is-expanded .slider-btn {
+    display: none;
+}
+
+/* Products grid — horizontal carousel (default) */
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: clamp(1.5rem, 3vw, 2rem);
+    --slider-gap: clamp(1rem, 2.5vw, 1.5rem);
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    gap: var(--slider-gap);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     align-items: stretch;
+}
+
+.products-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.products-grid .product-card {
+    flex: 0 0 calc((100% - 2 * var(--slider-gap)) / 3);
+    min-width: 0;
+    scroll-snap-align: start;
+}
+
+/* Expanded — multi-row grid */
+.collection-category.is-expanded .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    overflow: visible;
+    scroll-snap-type: none;
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+
+.collection-category.is-expanded .products-grid .product-card {
+    flex: none;
 }
 
 /* Product Cards */
@@ -2104,13 +2223,24 @@ body.mini-cart-open {
     }
 
     .category-title {
-        margin-bottom: 1.25rem;
         font-size: 1.25rem;
     }
 
     .products-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        --slider-gap: 1.25rem;
+    }
+
+    .products-grid .product-card {
+        flex: 0 0 calc((100% - var(--slider-gap)) / 2);
+    }
+
+    .collection-category.is-expanded .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .slider-btn {
+        width: 2.25rem;
+        height: 2.25rem;
     }
 
     .section-title {
@@ -2246,7 +2376,16 @@ body.mini-cart-open {
     }
 
     .products-grid {
-        gap: 1.25rem;
+        --slider-gap: 1rem;
+    }
+
+    .products-grid .product-card {
+        flex: 0 0 80%;
+    }
+
+    .slider-btn {
+        width: 2rem;
+        height: 2rem;
     }
 
     .checkout-item {
