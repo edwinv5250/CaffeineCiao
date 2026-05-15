@@ -316,8 +316,16 @@ function renderProductCard(product, categoryTitle) {
         ? 'A new piece is on its way — follow us on Instagram for the release.'
         : product.description;
 
+    const articleAttrs = product.soon ? '' : `
+        data-id="${product.id}"
+        data-name="${product.name.replace(/"/g, '&quot;')}"
+        data-price="${product.price}"
+        data-category="${categoryTitle.replace(/"/g, '&quot;')}"
+        data-image="${product.image}"
+        data-description="${product.description.replace(/"/g, '&quot;')}"`;
+
     return `
-        <article class="product-card${soonClass}">
+        <article class="product-card${soonClass}"${articleAttrs}>
             ${imageBlock}
             <div class="product-info">
                 <h3>${product.name}</h3>
@@ -366,8 +374,77 @@ function initCategorySliders() {
     });
 }
 
+function initProductModal() {
+    const overlay  = document.getElementById('product-modal-overlay');
+    const modal    = document.getElementById('product-modal');
+    const closeBtn = document.getElementById('product-modal-close');
+    if (!modal) return;
+
+    function openModal(card) {
+        const { id, name, price, category, image, description } = card.dataset;
+        document.getElementById('product-modal-img').src        = image;
+        document.getElementById('product-modal-img').alt        = name;
+        document.getElementById('product-modal-category').textContent = category;
+        document.getElementById('product-modal-name').textContent     = name;
+        document.getElementById('product-modal-desc').textContent     = description;
+        document.getElementById('product-modal-price').textContent    = `RM ${parseFloat(price).toFixed(2)}`;
+        const addBtn = document.getElementById('product-modal-add-btn');
+        addBtn.dataset.id       = id;
+        addBtn.dataset.name     = name;
+        addBtn.dataset.price    = price;
+        addBtn.dataset.category = category;
+        addBtn.dataset.image    = image;
+
+        overlay.hidden = false;
+        modal.hidden   = false;
+        requestAnimationFrame(() => {
+            overlay.classList.add('is-open');
+            modal.classList.add('is-open');
+        });
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+    }
+
+    function closeModal() {
+        overlay.classList.remove('is-open');
+        modal.classList.remove('is-open');
+        setTimeout(() => {
+            overlay.hidden = true;
+            modal.hidden   = true;
+            document.body.style.overflow = '';
+        }, 400);
+    }
+
+    overlay.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) closeModal();
+    });
+
+    document.getElementById('product-modal-add-btn').addEventListener('click', () => {
+        const btn = document.getElementById('product-modal-add-btn');
+        if (typeof openAddToCartModal === 'function') {
+            openAddToCartModal({
+                id:       btn.dataset.id,
+                name:     btn.dataset.name,
+                price:    parseFloat(btn.dataset.price),
+                category: btn.dataset.category,
+                image:    btn.dataset.image,
+            });
+        }
+        closeModal();
+    });
+
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.add-btn') || e.target.closest('.checkout-btn')) return;
+        const card = e.target.closest('.collection-category:not(.is-expanded) .products-grid .product-card[data-id]');
+        if (card) openModal(card);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     renderCollections();
     initProductCartControls();
     initCategorySliders();
+    initProductModal();
 });
