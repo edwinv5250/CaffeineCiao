@@ -3,7 +3,7 @@
 
     // ── CONFIGURATION ─────────────────────────────────────────────────────────
     // Paste your deployed Google Apps Script Web App URL here:
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_y3kVls0v5ypUP-6reDGrJ7qtixYN80C4_XcTSp-YTR8FfwuC5QbEpcjWeMCSuD8/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw2PRsrcBaigIhyjXY4hBkurrG0rukgGmnxdDxXy7eD9iuvL4dFyPDb0muShfxLYlHF/exec';
 
     // ── ELEMENTS ──────────────────────────────────────────────────────────────
     const form      = document.getElementById('contact-form');
