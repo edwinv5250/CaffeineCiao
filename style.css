@@ -1458,21 +1458,7 @@ body {
 }
 
 .collection-category:not(.is-expanded) .products-grid .product-info {
-    padding: 0.5rem 0.625rem;
-    flex-grow: 0;
-}
-
-.collection-category:not(.is-expanded) .products-grid .product-description,
-.collection-category:not(.is-expanded) .products-grid .product-footer {
     display: none;
-}
-
-.collection-category:not(.is-expanded) .products-grid .product-info h3 {
-    font-size: 0.8125rem;
-    margin-bottom: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 /* Expanded — full collection grid */
