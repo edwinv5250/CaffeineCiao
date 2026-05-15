@@ -13,15 +13,17 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">
+            <a href="#home" class="nav-brand">
                 <img class="brand-logo" src="logo.png" alt="CaffeineCiao Logo">
                 <span>CaffeineCiao</span>
-            </div>
+            </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="#beans">Beans</a></li>
+                <li><a href="#brew-guide">Brew Guide</a></li>
+                <li>
+                    <a class="nav-instagram-btn" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">Instagram</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -37,7 +39,7 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="products">
+    <section id="beans" class="products">
         <div class="container">
             <h2 class="section-title">Our Collections</h2>
             
@@ -84,6 +86,14 @@
         </div>
     </section>
 
+    <!-- Brew Guide Section -->
+    <section id="brew-guide" class="brew-guide">
+        <div class="container">
+            <h2 class="section-title">Brew Guide</h2>
+            <p class="brew-guide-lead">Dial in your cup with our favorite ratios and grind settings — more guides coming soon on Instagram.</p>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -91,5 +101,12 @@
             <p>Follow us on <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">Instagram @caffeineciao</a></p>
         </div>
     </footer>
+
+    <script>
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('is-scrolled', window.scrollY > 48);
+        }, { passive: true });
+    </script>
 </body>
 </html>
