@@ -105,24 +105,74 @@
     <section id="contact-us" class="contact-section">
         <div class="container">
             <h2 class="section-title">Contact Us</h2>
-            <ul class="contact-list">
-                <li class="contact-item">
-                    <span class="contact-label">Instagram</span>
-                    <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">CaffeineCiao</a>
-                </li>
-                <li class="contact-item">
-                    <span class="contact-label">Email</span>
-                    <a href="mailto:caffeineciao@gmail.com">caffeineciao@gmail.com</a>
-                </li>
-                <li class="contact-item">
-                    <span class="contact-label">Address</span>
-                    <span class="contact-value">Bayan Lepas, Penang</span>
-                </li>
-                <li class="contact-item">
-                    <span class="contact-label">小红书</span>
-                    <span class="contact-value">嗨，咖</span>
-                </li>
-            </ul>
+            <div class="contact-layout">
+
+                <!-- Contact info -->
+                <div class="contact-info-panel">
+                    <p class="contact-info-lead">We'd love to hear from you. Reach out through any channel below, or send us a message directly.</p>
+                    <ul class="contact-list">
+                        <li class="contact-item">
+                            <span class="contact-label">Instagram</span>
+                            <a href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener">CaffeineCiao</a>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:caffeineciao@gmail.com">caffeineciao@gmail.com</a>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-label">Address</span>
+                            <span class="contact-value">Bayan Lepas, Penang</span>
+                        </li>
+                        <li class="contact-item">
+                            <span class="contact-label">小红书</span>
+                            <span class="contact-value">嗨，咖</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact form -->
+                <div class="contact-form-panel">
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label class="form-label" for="cf-name">Name</label>
+                            <input class="form-input" type="text" id="cf-name" name="name" placeholder="Your name" autocomplete="name" required>
+                            <span class="form-error" id="cf-name-error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cf-email">Email</label>
+                            <input class="form-input" type="email" id="cf-email" name="email" placeholder="your@email.com" autocomplete="email" required>
+                            <span class="form-error" id="cf-email-error" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cf-phone">Contact Number</label>
+                            <input class="form-input" type="tel" id="cf-phone" name="phone" placeholder="+60 12-345 6789" autocomplete="tel">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="cf-message">Message / Feedback</label>
+                            <textarea class="form-input form-textarea" id="cf-message" name="message" placeholder="Share your thoughts..." rows="4" required></textarea>
+                            <span class="form-error" id="cf-message-error" aria-live="polite"></span>
+                        </div>
+                        <button type="submit" class="form-submit-btn" id="cf-submit">
+                            <span class="form-submit-text">Send Message</span>
+                            <span class="form-submit-loader" aria-hidden="true"></span>
+                        </button>
+                    </form>
+
+                    <!-- Success state -->
+                    <div class="contact-success" id="contact-success" hidden>
+                        <div class="contact-success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <circle cx="12" cy="12" r="11" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M7 12.5l3.5 3.5 6.5-7" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="contact-success-title">Message Sent</h3>
+                        <p class="contact-success-text">Thank you for reaching out. We'll get back to you shortly — over a cup of coffee.</p>
+                        <button type="button" class="contact-success-reset" id="cf-reset">Send another message</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -163,6 +213,7 @@
     <script src="nav-dropdown.js"></script>
     <script src="cart.js"></script>
     <script src="products.js"></script>
+    <script src="contact.js"></script>
     <script>
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', () => {
