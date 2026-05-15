@@ -62,7 +62,7 @@ const COLLECTIONS = [
                 name: 'Hario V60 + Filter Paper',
                 description: '02 ceramic dripper with 100-count bleached filters.',
                 price: 95,
-                image: 'https://images.unsplash.com/photo-1497934476412-10ddca8122da?w=600&q=80',
+                image: 'https://lamarsacoffee.com/cdn/shop/files/HarioV60CoffeeDripper02-Ceramic_MattGrey__Artboard01.png?v=1773907663&width=4167',
                 soon: false,
             },
             {

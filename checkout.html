@@ -12,13 +12,25 @@
 <body data-page="checkout">
     <nav class="navbar">
         <div class="container">
-            <a href="index.html#home" class="nav-brand">
-                <img class="brand-logo" src="logo.png" alt="CaffeineCiao Logo">
-                <span>CaffeineCiao</span>
-            </a>
+            <div class="nav-brand-dropdown">
+                <button type="button" class="nav-brand" id="brand-menu-btn" aria-expanded="false" aria-haspopup="true" aria-controls="brand-menu">
+                    <img class="brand-logo" src="logo.png" alt="CaffeineCiao Logo">
+                    <span>CaffeineCiao</span>
+                </button>
+                <div class="brand-dropdown" id="brand-menu" role="menu" aria-labelledby="brand-menu-btn" hidden>
+                    <ul class="brand-dropdown-list">
+                        <li><a href="index.html#shop" role="menuitem" class="brand-dropdown-link">Shop All</a></li>
+                        <li><a href="index.html#coffee-beans" role="menuitem" class="brand-dropdown-link">Coffee Beans</a></li>
+                        <li><a href="index.html#brew-gear" role="menuitem" class="brand-dropdown-link">Brew Gear</a></li>
+                        <li><a href="index.html#brew-guide" role="menuitem" class="brand-dropdown-link">Brew Guides</a></li>
+                        <li><a href="index.html#about" role="menuitem" class="brand-dropdown-link">About CaffeineCiao</a></li>
+                        <li><a href="https://www.instagram.com/caffeineciao" role="menuitem" class="brand-dropdown-link brand-dropdown-link--external" target="_blank" rel="noopener">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#beans">Beans</a></li>
+                <li><a href="index.html#shop">Shop</a></li>
                 <li><a href="index.html#brew-guide">Brew Guide</a></li>
                 <li>
                     <a class="nav-instagram-icon" href="https://www.instagram.com/caffeineciao" target="_blank" rel="noopener" aria-label="Instagram @caffeineciao">
@@ -96,6 +108,7 @@
         </div>
     </footer>
 
+    <script src="nav-dropdown.js"></script>
     <script src="cart.js"></script>
     <script>
         const navbar = document.querySelector('.navbar');
